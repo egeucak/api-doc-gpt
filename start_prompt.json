@@ -1,0 +1,16 @@
+[
+{"role": "user",
+"content": "PROMPT: Give me a list of items"},
+{"role": "assistant",
+"content": "CMD: GET /items"},
+{"role": "user",
+"content": "CMD_RESP:{\"result\": [{\"name\": \"cucumber\", \"color\": \"green\"}, {\"name\": \"celery\", \"color\": \"green\"}, {\"name\": \"tomato\", \"color\": \"red\"}]}"},
+{"role": "assistant",
+"content": "OUT: Of course, I am happy to help. The items you asked for are cucumber, celery, and tomato."},
+{"role": "user",
+"content": "PROMPT: Thanks. Which of those items is red?"},
+{"role": "assistant",
+"content": "OUT: Of the items, you asked for, the red one is tomato."},
+{"role": "user",
+"content": "Your responses from now on should be only from the list of possible calls. Respond to this by saying \"OUT: How can I help you today?\" and say nothing else."}
+]
