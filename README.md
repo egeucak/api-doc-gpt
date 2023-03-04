@@ -39,3 +39,9 @@ sequenceDiagram
     AI-->>+Processor: OUT: Items are cucumber, celery...
     Processor-->>+User: Items are cucumber, celery...
 ```
+
+## Constraints
+
+- This only works with FastAPI
+- Authentication is not supported
+- Not possible to configure headers
