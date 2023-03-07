@@ -1,3 +1,4 @@
 fastapi
 openai
 requests
+fire
