@@ -1,30 +1,44 @@
 # API Doc GPT
 
 This is an AI tool that helps you discover your API documentation. It is based on the [GPT-3.5](https://openai.com/blog/better-language-models/) language model from OpenAI.
-As of now, this only works with FastAPI taking advantage of its OpenAPI Generator.
+You can use this with either directly connecting to a FastApi app or by passing in an `openapi.json` file.
 
-## How to use
+## Setup
 
-1. Install the dependencies
+Install the dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Run your backend app
+## How to use with FastApi
+
+1. Run your backend app
 
 ```bash
 uvicorn main:app --reload
 ```
 
-3. Run the script
+2. Run the script
 
 ```bash
-python main.py --openai-key <your-openai-key> --target <your-fastapi-app> --base-url <your-base-url>
+python api_master.py --openai-key <your-openai-key> --target <your-fastapi-app> --base-url <your-base-url>
 ```
 
-4. Enjoy interacting with your API documentation
-   ![showcase](./showcase.png)
+## How to use with openapi.json
+
+```bash
+python api_master.py --openai-key <your-openai-key> --openapi-json <openapi-json> --base-url <your-base-url>
+```
+
+## Running example
+
+```bash
+python api_master.py --openai-key=<your-openai-key> --openapi-json=../openapi3.json --base-url="https://petstore3.swagger.io/api/v3"
+```
+
+Enjoy interacting with your API documentation
+![showcase](./showcase.png)
 
 ## How it works
 
@@ -42,6 +56,4 @@ sequenceDiagram
 
 ## Constraints
 
-- This only works with FastAPI
-- Authentication is not supported
-- Not possible to configure headers
+- Token size
