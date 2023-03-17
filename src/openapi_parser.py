@@ -1,7 +1,6 @@
 import csv
 from dataclasses import dataclass
 from io import StringIO
-from typing import TypeVar
 
 def dict_to_csv(data: list[dict]) -> str:
     """

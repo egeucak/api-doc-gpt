@@ -6,7 +6,12 @@ logger = logging.getLogger(__name__)
 
 class Chat:
     _messages = []
-    def __init__(self, system_message: str = "You are a helpful AI assistant", starting_state: list[str] = None):
+    def __init__(
+        self,
+        system_message: str = "You are a helpful AI assistant",
+        starting_state: list[str] = None,
+        model_name: str = "gpt-3.5-turbo"
+    ):
         if starting_state:
             self._messages = starting_state
         else:
@@ -15,10 +20,11 @@ class Chat:
                 "content": system_message
             })
         self.total_tokens = 0
+        self.model_name = model_name
         
     def _construct_request(self, messages):
         req = {
-            "model": "gpt-3.5-turbo",
+            "model": self.model_name,
             "messages": messages
         }
         return req

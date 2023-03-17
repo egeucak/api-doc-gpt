@@ -40,6 +40,10 @@ python api_master.py --openai-key=<your-openai-key> --openapi-json=../openapi3.j
 Enjoy interacting with your API documentation
 ![showcase](./showcase.png)
 
+# With GPT-4
+
+This also works with GPT-4. You just need to pass parameter `--model-name=gpt-4` while running the script.
+
 ## How it works
 
 This works by creating open api documentation from your fastapi app and then using the GPT-3.5 language model to analyze documentation for your API.
