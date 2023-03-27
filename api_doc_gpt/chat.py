@@ -10,7 +10,8 @@ class Chat:
         self,
         system_message: str = "You are a helpful AI assistant",
         starting_state: list[str] = None,
-        model_name: str = "gpt-3.5-turbo"
+        model_name: str = "gpt-3.5-turbo",
+        stop: list[str] | None = None,
     ):
         if starting_state:
             self._messages = starting_state
@@ -21,6 +22,7 @@ class Chat:
             })
         self.total_tokens = 0
         self.model_name = model_name
+        self.stop = stop
         
     def _construct_request(self, messages):
         req = {
@@ -30,9 +32,14 @@ class Chat:
         return req
     
     def _send_req(self, args):
+        kwargs = {
+            "temperature": 0.5,
+        }
+        if self.stop:
+            kwargs["stop"] = self.stop
         return openai.ChatCompletion.create(
             **args,
-            temperature=0
+            **kwargs
         )
     
     def user_message(self, text: str):

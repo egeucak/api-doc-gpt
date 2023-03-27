@@ -29,6 +29,12 @@ class OpenApiGeneric:
 
     def to_dict(self):
         return self.__dict__
+    
+    def __str__(self) -> str:
+        return str(self.to_dict())
+    
+    def __repr__(self) -> str:
+        return str(self.to_dict())
 
 
 @dataclass
@@ -128,8 +134,8 @@ class OpenApiParser:
                 operation_id = operation["operationId"]
                 security = None
                 if "security" in operation:
-                    # security = list(operation["security"][0].keys())[0]
-                    security = "🔒"
+                    security = list(operation["security"][0].keys())[0]
+                    # security = "🔒"
                 responses = operation.get("responses")
                 success_response = responses.get("200")
                 if not success_response: success_response = list(responses.values())[0]
@@ -197,7 +203,7 @@ class OpenApiParser:
                     variable_type = property_details.get("items", {}).get("$ref", "").replace(schema_prefix, "")
                     variable_type = variable_type.replace(schema_prefix, "")
                 schema_data.append({
-                    "schema": path,
+                    "schema_name": path,
                     "variable_name": property_key,
                     "variable_type": variable_type,
                     "required": property_key in required_fields

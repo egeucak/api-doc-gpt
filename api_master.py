@@ -1,4 +1,4 @@
-from src.main import start_api_master
+from api_doc_gpt.main import start_api_master
 
 if __name__=="__main__":
     import fire

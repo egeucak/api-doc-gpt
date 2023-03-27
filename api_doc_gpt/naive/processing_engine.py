@@ -3,7 +3,7 @@ import logging
 
 import requests
 
-from src.chat import Chat
+from api_doc_gpt.chat import Chat
 
 logger = logging.getLogger(__name__)
 
