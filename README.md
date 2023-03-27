@@ -34,7 +34,7 @@ python api_master.py --openai-key <your-openai-key> --openapi-json <openapi-json
 ## Running example
 
 ```bash
-python api_master.py --openai-key=<your-openai-key> --openapi-json=../openapi3.json --base-url="https://petstore3.swagger.io/api/v3"
+python api_master.py --openai-key=<your-openai-key> --openapi-json=./example/openapi.json --base-url="https://petstore3.swagger.io/api/v3"
 ```
 
 Enjoy interacting with your API documentation
@@ -57,6 +57,8 @@ sequenceDiagram
     AI-->>+Processor: OUT: Items are cucumber, celery...
     Processor-->>+User: Items are cucumber, celery...
 ```
+
+This also supports react. More detail can be found at: https://arxiv.org/abs/2210.03629
 
 ## Constraints
 
